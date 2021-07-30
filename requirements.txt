@@ -1,0 +1,11 @@
+asgiref==3.4.1
+certifi==2021.5.30
+Django==3.2.5
+django-neomodel==0.0.7
+neo4j-driver==4.3.1
+neobolt==1.7.17
+neomodel==4.0.5
+pytz==2021.1
+Shapely==1.7.1
+six==1.16.0
+sqlparse==0.4.1
