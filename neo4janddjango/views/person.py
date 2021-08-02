@@ -33,7 +33,7 @@ def personDetails(request):
         name = request.GET.get('name', ' ')
         try:
             person = PersonForm()
-            return render(request, "index.html", {'form': person})
+            return render(request, "neo4janddjango/index.html", {'form': person})
         except Exception as e:
             response = {"error": "Error occurred"}
             return JsonResponse(response, safe=False)
