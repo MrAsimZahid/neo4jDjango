@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Person</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+
+<h1>Persons</h1>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+
+
+      <th scope="col">Uid</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for each in result %}
+<tr>
+                <td>{{ each.uid }}</td>
+                <td>{{ each.name }}</td>
+                <td>{{ each.age }} </td>
+            </tr>
+{% endfor %}
+
+
+
+
+
+  </tbody>
+</table>
+
+    </body>
+</html>
