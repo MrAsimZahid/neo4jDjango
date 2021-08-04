@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from neo4janddjango.models import *
 from django.views.decorators.csrf import csrf_exempt
 import json
+from neo4janddjango.forms import FriendForm
+from django.shortcuts import render
 
 
 @csrf_exempt
@@ -22,10 +24,24 @@ def connectPaC(request):
 
 @csrf_exempt
 def connectPaP(request):
+    if request.method == 'GET':
+        try:
+            friend = FriendForm()
+            # create_relation
+            return render(request, "neo4janddjango/create_relation.html", {'friend_form': friend})
+        except Exception as e:
+            response = {"error": "Error occurred"}
+            return JsonResponse(response, safe=False)
+
     if request.method == 'PUT':
-        json_data = json.loads(request.body)
-        uid1 = json_data['uid1']
-        uid2 = json_data['uid2']
+        json_data = FriendForm(request.PUT)
+        if json_data.is_valid():
+            # print('Hi')
+            uid1 = json_data.cleaned_data['f1_uid']
+            uid2 = int(json_data.cleaned_data['f1_uid'])
+        # json_data = json.loads(request.body)
+        # uid1 = json_data['uid1']
+        # uid2 = json_data['uid2']
         try:
             person1 = Person.nodes.get(uid=uid1)
             person2 = Person.nodes.get(uid=uid2)

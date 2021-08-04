@@ -3,24 +3,37 @@ from neo4janddjango.models import Person
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.shortcuts import render
-from django.core.mail import send_mail
 from neo4janddjango.forms import PersonForm
+
+
+def display_index(request):
+    if request.method == 'GET':
+        try:
+            return render(request, "neo4janddjango/index.html")
+        except:
+            response = {"error": "Error occurred"}
+            return JsonResponse(response, safe=False)
 
 
 def getAllPersons(request):
     if request.method == 'GET':
         try:
             persons = Person.nodes.all()
-            response = []
+            p_response = []
             for person in persons:
                 obj = {
                     "uid": person.uid,
                     "name": person.name,
-                    "age": person.age,
+                    "age": person.age
                 }
-                response.append(obj)
-            return JsonResponse(response, safe=False)
-        except:
+                p_response.append(obj)
+            # response_dump = json.dumps(p_response)
+            # print(p_response)
+#           # print(JsonResponse(response, safe=False)) # response_dump)
+            return render(request, "neo4janddjango/display_person.html", {'result': p_response})
+            # return JsonResponse(response, safe=False)
+        except Exception as e:
+            print(e)
             response = {"error": "Error occurred"}
             return JsonResponse(response, safe=False)
 
@@ -30,10 +43,11 @@ def personDetails(request):
     print()
     if request.method == 'GET':
         # get one person by name
-        name = request.GET.get('name', ' ')
+        # name = request.GET.get('name', ' ')
         try:
             person = PersonForm()
-            return render(request, "neo4janddjango/index.html", {'form': person})
+            # create_relation
+            return render(request, "neo4janddjango/person.html", {'person_form': person})
         except Exception as e:
             response = {"error": "Error occurred"}
             return JsonResponse(response, safe=False)
@@ -44,14 +58,12 @@ def personDetails(request):
         # json_data = json.loads(request.body)
 
         if json_data.is_valid():
-            print('Hi')
+            # print('Hi')
             name = json_data.cleaned_data['person_name']
             age = int(json_data.cleaned_data['person_age'])
         # name = json_data['name']
         # age = int(json_data['age'])
         try:
-            print(name)
-            print(age)
             person = Person(name=name, age=age)
             person.save()
             response = {

@@ -1,5 +1,30 @@
-<form action="/person/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Form</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+
+
+
+<div class="container">
+    <h1>Person Form</h1>
+    <form action="/" method="POST">
+        {% csrf_token %}
+    <div class="form-group">
+        {{ person_form.person_name }}
+    </div>
+    <div class="form-group">
+        {{ person_form.person_age }}
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
+    </form>
+</div>
+
+
+</body>
+</html>
+

@@ -1,7 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Form</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
 
 
-<form action="/" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+    <div class="text-center" role="group" aria-label="Basic example">
+        <form action='/getAllPersons' method='GET'>
+            <button type="submit" class="btn btn-primary">View Persons</button>
+        </form>
+        <form action='/getAllCities' method='GET'>
+              <button type="submit" class="btn btn-primary">View Cities</button>
+        </form>
+        <form action='/connectPaP' method='GET'>
+              <button type="submit" class="btn btn-primary">Make Friends</button>
+        </form>
+        <form action='/personDetails' method='GET'>
+              <button type="submit" class="btn btn-primary">Add Persons</button>
+        </form>
+        <form action='/city' method='GET'>
+              <button type="submit" class="btn btn-primary">Add Ciities</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+<!--<form action="/" method="POST">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form }}-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
