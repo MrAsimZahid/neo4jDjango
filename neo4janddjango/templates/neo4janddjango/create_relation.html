@@ -9,57 +9,57 @@
 
 
 
-<div class="container">
-    <h1>Friend 1</h1>
-    <form action="/getAllPersons" method="PUT">
-        {% csrf_token %}
-    <div class="form-group">
-        <select>
-        {% for each in result %}
-                <option>{{ each.uid }}</option>
-        {% endfor %}
-        </select>
-    </div>
-    <div class="form-group">
-        <select>
-        {% for each in result %}
-                <option>{{ each.name }}</option>
-        {% endfor %}
-            </select>
-    </div>
-    </form>
-</div>
+<!--<div class="container">-->
+<!--    <h1>Friend 1</h1>-->
+<!--    <form action="/getAllPersons" method="PUT">-->
+<!--        {% csrf_token %}-->
+<!--    <div class="form-group">-->
+<!--        <select>-->
+<!--        {% for each in result %}-->
+<!--                <option>{{ each.uid }}</option>-->
+<!--        {% endfor %}-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <select>-->
+<!--        {% for each in result %}-->
+<!--                <option>{{ each.name }}</option>-->
+<!--        {% endfor %}-->
+<!--            </select>-->
+<!--    </div>-->
+<!--    </form>-->
+<!--</div>-->
 
-<div class="container">
-    <select>
-        <option>Friend of</option>
-    </select>
-</div>
+<!--<div class="container">-->
+<!--    <select>-->
+<!--        <option>Friend of</option>-->
+<!--    </select>-->
+<!--</div>-->
 
 
-<div class="container">
-    <h1>Friend 2</h1>
-    <form action="/getAllPersons" method="PUT">
-        {% csrf_token %}
-    <div class="form-group">
-        <select>
-        {% for each in result %}
-                <option>{{ each.uid }}</option>
-        {% endfor %}
-            </select>
-    </div>
-    <div class="form-group">
-        <select>
-        {% for each in result %}
-                <option>{{ each.name }}</option>
-        {% endfor %}
-        </select>
-    </div>
-    <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Submit">
-    </div>
-    </form>
-</div>
+<!--<div class="container">-->
+<!--    <h1>Friend 2</h1>-->
+<!--    <form action="/getAllPersons" method="PUT">-->
+<!--        {% csrf_token %}-->
+<!--    <div class="form-group">-->
+<!--        <select>-->
+<!--        {% for each in result %}-->
+<!--                <option>{{ each.uid }}</option>-->
+<!--        {% endfor %}-->
+<!--            </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <select>-->
+<!--        {% for each in result %}-->
+<!--                <option>{{ each.name }}</option>-->
+<!--        {% endfor %}-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <input class="btn btn-primary" type="submit" value="Submit">-->
+<!--    </div>-->
+<!--    </form>-->
+<!--</div>-->
 
 <!--    Partition-->
 
@@ -72,12 +72,11 @@
     <div class="form-group">
         {{ friend_form.f1_uid }}
     </div>
-    </form>
 
         <h7>Friend of</h7>
 <h1>Friend 2</h1>
     <div class="form-group">
-        {{ friend_form.f1_uid }}
+        {{ friend_form.f2_uid }}
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Submit">

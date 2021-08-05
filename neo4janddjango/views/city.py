@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.shortcuts import render
 from neo4janddjango.forms import CityForm
+from django.http import HttpResponse
 
 
 def getAllCities(request):
@@ -56,7 +57,9 @@ def cityDetails(request):
             response = {
                 "code": city.code,
             }
-            return JsonResponse(response)
+            success_url = 'getAllCities'
+            # return  # JsonResponse(response)
+            return HttpResponse('City added. Thank you.')
         except :
             response = {"error": "Error occurred"}
             return JsonResponse(response, safe=False)

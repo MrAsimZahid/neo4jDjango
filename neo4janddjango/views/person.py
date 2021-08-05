@@ -30,6 +30,7 @@ def getAllPersons(request):
             # response_dump = json.dumps(p_response)
             # print(p_response)
 #           # print(JsonResponse(response, safe=False)) # response_dump)
+            # create_relation
             return render(request, "neo4janddjango/display_person.html", {'result': p_response})
             # return JsonResponse(response, safe=False)
         except Exception as e:

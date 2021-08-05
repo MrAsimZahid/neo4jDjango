@@ -25,20 +25,24 @@ def connectPaC(request):
 @csrf_exempt
 def connectPaP(request):
     if request.method == 'GET':
+        print('hello')
         try:
-            friend = FriendForm()
+            fri = FriendForm()
             # create_relation
-            return render(request, "neo4janddjango/create_relation.html", {'friend_form': friend})
+            return render(request, "neo4janddjango/create_relation.html", {'friend_form': fri})
         except Exception as e:
+            print('Exception')
+            print(e)
             response = {"error": "Error occurred"}
             return JsonResponse(response, safe=False)
 
-    if request.method == 'PUT':
-        json_data = FriendForm(request.PUT)
+    if request.method == 'POST':
+        print("hi")
+        json_data = FriendForm(request.POST)
         if json_data.is_valid():
-            # print('Hi')
+            print('Hi')
             uid1 = json_data.cleaned_data['f1_uid']
-            uid2 = int(json_data.cleaned_data['f1_uid'])
+            uid2 = json_data.cleaned_data['f2_uid']
         # json_data = json.loads(request.body)
         # uid1 = json_data['uid1']
         # uid2 = json_data['uid2']

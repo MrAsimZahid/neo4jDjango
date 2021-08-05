@@ -17,5 +17,5 @@ class CityForm(forms.Form):
 
 
 class FriendForm(forms.Form):
-    f1_uid = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter UID', 'style': 'width: 300px;', 'class': 'form-control'}))
-    f2_uid = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter UID', 'style': 'width: 300px;', 'class': 'form-control'}))
+    f1_uid = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter UID1', 'style': 'width: 300px;', 'class': 'form-control'}))
+    f2_uid = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter UID2', 'style': 'width: 300px;', 'class': 'form-control'}))
